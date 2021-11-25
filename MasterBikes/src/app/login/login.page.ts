@@ -73,4 +73,8 @@ export class LoginPage implements OnInit {
     })
   }
 
+  toRegister(): void {
+    this.navControler.navigateForward("register");
+  }
+
 }
