@@ -15,11 +15,33 @@
           <ion-label position="floating">Nombre de usuario</ion-label>
           <ion-input formControlName="username"></ion-input>
         </ion-item>
+        <div class="validation-error">
+          <ng-container *ngFor="let validation of validation_messages.username">
+            <div *ngIf= "
+                  loginForm.get('username').hasError(validation.type) &&
+                  (loginForm.get('username').dirty ||
+                  loginForm.get('username').touched)
+            ">
+            <p style="color:red">{{validation.message}}</p>
+            </div>
+          </ng-container>
+        </div>
         <ion-item>
           <ion-label position="floating">Contraseña</ion-label>
           <ion-input type="password" formControlName="password"></ion-input>
         </ion-item>
-        <ion-button type="submit" expand="block" fill="solid" shape="round" class="btn-inicio-sesion">
+        <div class="validation-error">
+          <ng-container *ngFor="let validation of validation_messages.password">
+            <div *ngIf= "
+                  loginForm.get('password').hasError(validation.type) &&
+                  (loginForm.get('password').dirty ||
+                  loginForm.get('password').touched)
+            ">
+            <p style="color:red">{{validation.message}}</p>
+            </div>
+          </ng-container>
+        </div>
+        <ion-button type="submit" expand="block" fill="solid" shape="round" class="btn-inicio-sesion" [disabled]="!loginForm.valid">
           Iniciar sesión
         </ion-button>
       </form>

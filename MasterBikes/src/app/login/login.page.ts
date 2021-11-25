@@ -25,7 +25,7 @@ export class LoginPage implements OnInit {
     password: [
       {type: "required", message: "La contraseña es obligatoria."},
       {type:"minLength", message: "La contraseña es de mínimo 5 caracteres."},
-      {type: "maxLength", message: "La contraseña es de máxiomo 30 caracteres."}
+      {type: "maxLength", message: "La contraseña es de máximo 30 caracteres."}
     ]
   };
   
@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
     this.loginForm = this.formBuilder.group({
       username: new FormControl("", Validators.compose([
         Validators.required,
-        Validators.minLength(8),
+        Validators.minLength(4),
       ])
       ),
       password: new FormControl("", Validators.compose([

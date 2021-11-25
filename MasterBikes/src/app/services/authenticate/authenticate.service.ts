@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticateService {
 
   datosGuardados;
+  datosEnviados;
   response;
   errorMessage = '';
 
@@ -41,5 +41,27 @@ export class AuthenticateService {
     this.storage.remove('userData');
     this.storage.set('isUserLoggedIn', false);
     this.router.navigate(['login']);
+  }
+
+  registerUser(credentials) {
+    return new Promise((accept, reject) => {
+      let data = {
+        "name": credentials.name,
+        "lastname": credentials.lastname,
+        "username": credentials.username,
+        "email": credentials.email,
+        "password": credentials.password
+      }
+      //const apiURL = `http://localhost:8000/api/users/${credentials.name}/${credentials.lastname}/${credentials.email}/${credentials.password}/${credentials.username}/`;
+      const apiURL = `http://localhost:8000/api/users/`;
+      this.http.post(apiURL, credentials).subscribe(
+        (data) => {
+          accept(console.log("enviados..."))
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
+    })
   }
 }
