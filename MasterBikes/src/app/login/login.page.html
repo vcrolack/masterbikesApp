@@ -10,17 +10,19 @@
       <ion-card-title class="ion-text-center">INICIA SESIÓN</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Correo electrónico</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password"></ion-input>
-      </ion-item>
-      <ion-button (click)="onClick()" expand="block" fill="solid" shape="round" class="btn-inicio-sesion">
-        Iniciar sesión
-      </ion-button>
+      <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+        <ion-item>
+          <ion-label position="floating">Nombre de usuario</ion-label>
+          <ion-input formControlName="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <ion-button type="submit" expand="block" fill="solid" shape="round" class="btn-inicio-sesion">
+          Iniciar sesión
+        </ion-button>
+      </form>
     </ion-card-content>
     <ion-card-content class="cambio-contrasena ion-text-center">
       ¿Olvidaste tu contraseña?&nbsp;<a >Pulsa aquí</a>
