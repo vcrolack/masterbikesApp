@@ -11,6 +11,7 @@ export class AuthenticateService {
   datosEnviados;
   response;
   errorMessage = '';
+  bikes
 
   constructor(
     private http: HttpClient,
@@ -37,7 +38,7 @@ export class AuthenticateService {
     })
   }
 
-  logout(): void {
+  logOut(): void {
     this.storage.remove('userData');
     this.storage.set('isUserLoggedIn', false);
     this.router.navigate(['login']);
