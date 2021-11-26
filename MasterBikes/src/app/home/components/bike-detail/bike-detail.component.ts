@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { BikeService } from 'src/app/services/bikes/bike.service';
+import { CartService } from 'src/app/services/cart/cart.service';
 
 @Component({
   selector: 'app-bike-detail',
@@ -15,7 +16,8 @@ export class BikeDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private bikeService: BikeService
+    private bikeService: BikeService,
+    private cartService: CartService
   ) {
     this.route.params.subscribe((params: Params) => {
       const id = params.id;
@@ -35,6 +37,11 @@ getBike(id) {
     .catch(error => {
       console.log(error);
     })
+  }
+
+  addCart() {
+    console.log('agregar al carrito')
+    this.cartService.addCart(this.bike);
   }
 
 }

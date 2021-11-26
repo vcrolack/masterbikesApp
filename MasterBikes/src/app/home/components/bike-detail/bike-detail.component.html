@@ -1,8 +1,4 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Header</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 <ion-content>
   <ion-card *ngIf="bike">
     <ion-card-header>
@@ -16,7 +12,7 @@
       <p>{{bike.description}}</p>
     </ion-card-content>
     <ion-card-content>
-      <ion-button class="btn-buy" expand="block" fill="solid" shape="round">
+      <ion-button (click)="addCart()" class="btn-buy" expand="block" fill="solid" shape="round">
         <a style="color: #1C1B1B; text-decoration: none;" [routerLink]="['/home', bike.id]">Agregar al carro</a>
       </ion-button>
     </ion-card-content>

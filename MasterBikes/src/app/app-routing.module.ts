@@ -25,6 +25,10 @@ const routes: Routes = [
   },
   {
     path: 'home/:id', component: BikeDetailComponent
+  },
+  {
+    path: 'order',
+    loadChildren: () => import('./order/order.module').then( m => m.OrderPageModule)
   }
 ];
 

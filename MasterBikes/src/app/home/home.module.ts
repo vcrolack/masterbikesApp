@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { BikeDetailComponent } from './components/bike-detail/bike-detail.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -15,6 +16,7 @@ import { BikeDetailComponent } from './components/bike-detail/bike-detail.compon
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
+    SharedModule
   ],
   declarations: [HomePage, BikeDetailComponent],
   exports: [

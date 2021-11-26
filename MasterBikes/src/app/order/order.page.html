@@ -1,0 +1,35 @@
+
+<ion-content *ngIf="(bikes$ | async) as bikes">
+  <ion-title class="ion-text-center">CARRO DE COMPRAS</ion-title>
+  <p *ngIf="bikes.length === 0">No hay productos</p>
+  <ion-grid fixed>
+    <ion-card *ngFor="let bike of bikes" >
+      <ion-card-header>
+        <ion-card-title>{{bike.nameBike}}</ion-card-title>
+      </ion-card-header>
+      <ion-row>
+        <ion-col size="12">
+          <ion-card-content style="display: flex;">
+            <ion-thumbnail>
+              <img src="{{bike.imgUrl}}" />
+            </ion-thumbnail>
+            <ion-card-content>
+              <h1>Coste:</h1>
+              <h2>{{bike.price | currency:clp}}</h2>
+              <h1>Impuestos:</h1>
+              <h2>0 | currency: clp</h2>
+            </ion-card-content>        
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-button (click)="onClick()" expand="block" fill="clear" shape="round" class="btn-buy">
+    Comprar
+  </ion-button>
+</ion-footer>
+
+

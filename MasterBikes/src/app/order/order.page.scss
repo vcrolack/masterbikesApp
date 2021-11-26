@@ -1,0 +1,17 @@
+ion-thumbnail {
+  --border-radius: 8px;
+  --size: 120px;
+  object-fit: cover;
+}
+h1{
+  font-weight: bold;
+  color: var(--btn-color);
+}
+h2 {
+  font-size: 20px;
+  color: #FFF;
+}
+.btn-buy {
+  --background: var(--btn-color);
+  color: #1C1B1B
+}
